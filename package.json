@@ -37,7 +37,8 @@
       "generated/tim_21.cpp",
       "generated/tim_22.cpp",
       "generated/lpusart1.cpp",
-      "generated/nvic.cpp"
+      "generated/nvic.cpp",
+      "generated/systick.cpp"
     ],
     "symbols": {
       "_ZN6target3DACE": "0x40007400",
@@ -76,7 +77,8 @@
       "_ZN6target5TIM21E": "0x40010800",
       "_ZN6target5TIM22E": "0x40011400",
       "_ZN6target8LPUSART1E": "0x40004800",
-      "_ZN6target4NVICE": "0xE000E100"
+      "_ZN6target4NVICE": "0xE000E100",
+      "_ZN6target7SYSTICKE": "0xE000E010"
     },
     "interrupts": {
       "0": "WWDG",
