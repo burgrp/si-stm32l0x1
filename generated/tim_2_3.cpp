@@ -1,5 +1,5 @@
 namespace target {
-  namespace tim_2 {
+  namespace tim_2_3 {
     namespace reg {
       
       /**
@@ -381,20 +381,6 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setTDE(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 14)) | ((value << 14) & (0x1 << 14));
-        }
-        /**
-          Gets Reserved
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getCOMDE() volatile {
-          return (raw & (0x1 << 13)) >> 13;
-        }
-        /**
-          Sets Reserved
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setCOMDE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 13)) | ((value << 13) & (0x1 << 13));
         }
         /**
           Gets Update DMA request enable
@@ -1799,5 +1785,6 @@ namespace target {
     };
   }
   
-  extern tim_2::Peripheral TIM2;
+  extern tim_2_3::Peripheral TIM2;
+  extern tim_2_3::Peripheral TIM3;
 }

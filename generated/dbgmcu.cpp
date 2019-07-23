@@ -302,5 +302,5 @@ namespace target {
     };
   }
   
-  extern dbgmcu::Peripheral DBGMCU;
+  extern dbgmcu::Peripheral DBG;
 }

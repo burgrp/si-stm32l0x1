@@ -617,4 +617,5 @@ namespace target {
   extern gpio_b_h::Peripheral GPIOC;
   extern gpio_b_h::Peripheral GPIOD;
   extern gpio_b_h::Peripheral GPIOH;
+  extern gpio_b_h::Peripheral GPIOE;
 }

@@ -1305,4 +1305,5 @@ namespace target {
   
   extern i2c::Peripheral I2C1;
   extern i2c::Peripheral I2C2;
+  extern i2c::Peripheral I2C3;
 }

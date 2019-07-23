@@ -1,5 +1,5 @@
 namespace target {
-  namespace usart_1_2 {
+  namespace usart_1_5 {
     namespace reg {
       
       /**
@@ -1773,6 +1773,8 @@ namespace target {
     };
   }
   
-  extern usart_1_2::Peripheral USART1;
-  extern usart_1_2::Peripheral USART2;
+  extern usart_1_5::Peripheral USART1;
+  extern usart_1_5::Peripheral USART2;
+  extern usart_1_5::Peripheral USART4;
+  extern usart_1_5::Peripheral USART5;
 }

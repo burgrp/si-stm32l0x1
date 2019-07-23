@@ -1,5 +1,5 @@
 namespace target {
-  namespace tim_6 {
+  namespace tim_6_7 {
     namespace reg {
       
       /**
@@ -358,5 +358,6 @@ namespace target {
     };
   }
   
-  extern tim_6::Peripheral TIM6;
+  extern tim_6_7::Peripheral TIM6;
+  extern tim_6_7::Peripheral TIM7;
 }

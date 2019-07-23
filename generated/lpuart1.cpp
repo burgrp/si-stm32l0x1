@@ -1,5 +1,5 @@
 namespace target {
-  namespace lpusart1 {
+  namespace lpuart1 {
     namespace reg {
       
       /**
@@ -1253,5 +1253,5 @@ namespace target {
     };
   }
   
-  extern lpusart1::Peripheral LPUSART1;
+  extern lpuart1::Peripheral LPUART1;
 }

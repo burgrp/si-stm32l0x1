@@ -527,6 +527,260 @@ namespace target {
           raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
         }
       };
+      
+      /**
+        Comparator 1 control and status register
+      */
+      class COMP1_CTRL {
+        volatile unsigned long raw;
+        public:
+        __attribute__((always_inline)) void operator= (unsigned long value) volatile {
+          raw = value;
+        }
+        __attribute__((always_inline)) operator unsigned long () volatile {
+          return raw;
+        }
+        /**
+          Gets Comparator 1 enable bit
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getCOMP1EN() volatile {
+          return (raw & (0x1 << 0)) >> 0;
+        }
+        /**
+          Sets Comparator 1 enable bit
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setCOMP1EN(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
+        }
+        /**
+          Gets Comparator 1 Input Minus connection configuration bit
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getCOMP1INNSEL() volatile {
+          return (raw & (0x3 << 4)) >> 4;
+        }
+        /**
+          Sets Comparator 1 Input Minus connection configuration bit
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setCOMP1INNSEL(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 4)) | ((value << 4) & (0x3 << 4));
+        }
+        /**
+          Gets Comparator 1 window mode selection bit
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getCOMP1WM() volatile {
+          return (raw & (0x1 << 8)) >> 8;
+        }
+        /**
+          Sets Comparator 1 window mode selection bit
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setCOMP1WM(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 8)) | ((value << 8) & (0x1 << 8));
+        }
+        /**
+          Gets Comparator 1 LPTIM input propagation bit
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getCOMP1LPTIMIN1() volatile {
+          return (raw & (0x1 << 12)) >> 12;
+        }
+        /**
+          Sets Comparator 1 LPTIM input propagation bit
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setCOMP1LPTIMIN1(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 12)) | ((value << 12) & (0x1 << 12));
+        }
+        /**
+          Gets Comparator 1 polarity selection bit
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getCOMP1POLARITY() volatile {
+          return (raw & (0x1 << 15)) >> 15;
+        }
+        /**
+          Sets Comparator 1 polarity selection bit
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setCOMP1POLARITY(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 15)) | ((value << 15) & (0x1 << 15));
+        }
+        /**
+          Gets Comparator 1 output status bit
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getCOMP1VALUE() volatile {
+          return (raw & (0x1 << 30)) >> 30;
+        }
+        /**
+          Sets Comparator 1 output status bit
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setCOMP1VALUE(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 30)) | ((value << 30) & (0x1 << 30));
+        }
+        /**
+          Gets COMP1_CSR register lock bit
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getCOMP1LOCK() volatile {
+          return (raw & (0x1 << 31)) >> 31;
+        }
+        /**
+          Sets COMP1_CSR register lock bit
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setCOMP1LOCK(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 31)) | ((value << 31) & (0x1 << 31));
+        }
+      };
+      
+      /**
+        Comparator 2 control and status register
+      */
+      class COMP2_CTRL {
+        volatile unsigned long raw;
+        public:
+        __attribute__((always_inline)) void operator= (unsigned long value) volatile {
+          raw = value;
+        }
+        __attribute__((always_inline)) operator unsigned long () volatile {
+          return raw;
+        }
+        /**
+          Gets Comparator 2 LPTIM input 1 propagation bit
+          @param index in range 1..2
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getLPTIMIN(int index) volatile {
+          return (raw & (0x1 << (13 + -1 * (index - 1)))) >> (13 + -1 * (index - 1));
+        }
+        /**
+          Sets Comparator 2 LPTIM input 1 propagation bit
+          @param index in range 1..2
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setLPTIMIN(int index, unsigned long value) volatile {
+          raw = (raw & ~(0x1 << (13 + -1 * (index - 1)))) | ((value << (13 + -1 * (index - 1))) & (0x1 << (13 + -1 * (index - 1))));
+        }
+        /**
+          Gets Comparator 2 LPTIM input 1 propagation bit
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getLPTIMIN() volatile {
+          return (raw & (0x3 << 13)) >> 13;
+        }
+        /**
+          Sets Comparator 2 LPTIM input 1 propagation bit
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setLPTIMIN(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 13)) | ((value << 13) & (0x3 << 13));
+        }
+        /**
+          Gets Comparator 2 enable bit
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getCOMP2EN() volatile {
+          return (raw & (0x1 << 0)) >> 0;
+        }
+        /**
+          Sets Comparator 2 enable bit
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setCOMP2EN(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
+        }
+        /**
+          Gets Comparator 2 power mode selection bit
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getCOMP2SPEED() volatile {
+          return (raw & (0x1 << 3)) >> 3;
+        }
+        /**
+          Sets Comparator 2 power mode selection bit
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setCOMP2SPEED(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 3)) | ((value << 3) & (0x1 << 3));
+        }
+        /**
+          Gets Comparator 2 Input Minus connection configuration bit
+          @return value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long getCOMP2INNSEL() volatile {
+          return (raw & (0x7 << 4)) >> 4;
+        }
+        /**
+          Sets Comparator 2 Input Minus connection configuration bit
+          @param value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long setCOMP2INNSEL(unsigned long value) volatile {
+          raw = (raw & ~(0x7 << 4)) | ((value << 4) & (0x7 << 4));
+        }
+        /**
+          Gets Comparator 2 Input Plus connection configuration bit
+          @return value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long getCOMP2INPSEL() volatile {
+          return (raw & (0x7 << 8)) >> 8;
+        }
+        /**
+          Sets Comparator 2 Input Plus connection configuration bit
+          @param value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long setCOMP2INPSEL(unsigned long value) volatile {
+          raw = (raw & ~(0x7 << 8)) | ((value << 8) & (0x7 << 8));
+        }
+        /**
+          Gets Comparator 2 polarity selection bit
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getCOMP2POLARITY() volatile {
+          return (raw & (0x1 << 15)) >> 15;
+        }
+        /**
+          Sets Comparator 2 polarity selection bit
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setCOMP2POLARITY(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 15)) | ((value << 15) & (0x1 << 15));
+        }
+        /**
+          Gets Comparator 2 output status bit
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getCOMP2VALUE() volatile {
+          return (raw & (0x1 << 30)) >> 30;
+        }
+        /**
+          Sets Comparator 2 output status bit
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setCOMP2VALUE(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 30)) | ((value << 30) & (0x1 << 30));
+        }
+        /**
+          Gets COMP2_CSR register lock bit
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getCOMP2LOCK() volatile {
+          return (raw & (0x1 << 31)) >> 31;
+        }
+        /**
+          Sets COMP2_CSR register lock bit
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setCOMP2LOCK(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 31)) | ((value << 31) & (0x1 << 31));
+        }
+      };
     };
     class Peripheral {
       public:
@@ -579,9 +833,23 @@ namespace target {
           */
           volatile reg::CFGR3 CFGR3;
         };
+        struct {
+          volatile char _space_COMP1_CTRL[24];
+          /**
+            Comparator 1 control and status register
+          */
+          volatile reg::COMP1_CTRL COMP1_CTRL;
+        };
+        struct {
+          volatile char _space_COMP2_CTRL[28];
+          /**
+            Comparator 2 control and status register
+          */
+          volatile reg::COMP2_CTRL COMP2_CTRL;
+        };
       };
     };
   }
   
-  extern syscfg::Peripheral SYSCFG;
+  extern syscfg::Peripheral SYSCFG_COMP;
 }

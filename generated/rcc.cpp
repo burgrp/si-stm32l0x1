@@ -210,6 +210,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setHSI16ON(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
         }
+        /**
+          Gets 16 MHz high-speed internal clock output enable
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getHSI16OUTEN() volatile {
+          return (raw & (0x1 << 5)) >> 5;
+        }
+        /**
+          Sets 16 MHz high-speed internal clock output enable
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setHSI16OUTEN(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 5)) | ((value << 5) & (0x1 << 5));
+        }
       };
       
       /**
@@ -293,62 +307,6 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setHSI16CAL(unsigned long value) volatile {
           raw = (raw & ~(0xFF << 0)) | ((value << 0) & (0xFF << 0));
-        }
-      };
-      
-      /**
-        Clock recovery RC register
-      */
-      class CRRCR {
-        volatile unsigned long raw;
-        public:
-        __attribute__((always_inline)) void operator= (unsigned long value) volatile {
-          raw = value;
-        }
-        __attribute__((always_inline)) operator unsigned long () volatile {
-          return raw;
-        }
-        /**
-          Gets 48 MHz HSI clock calibration
-          @return value in range 0..255
-        */
-        __attribute__((always_inline)) unsigned long getHSI48CAL() volatile {
-          return (raw & (0xFF << 8)) >> 8;
-        }
-        /**
-          Sets 48 MHz HSI clock calibration
-          @param value in range 0..255
-        */
-        __attribute__((always_inline)) unsigned long setHSI48CAL(unsigned long value) volatile {
-          raw = (raw & ~(0xFF << 8)) | ((value << 8) & (0xFF << 8));
-        }
-        /**
-          Gets 48MHz HSI clock ready flag
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getHSI48RDY() volatile {
-          return (raw & (0x1 << 1)) >> 1;
-        }
-        /**
-          Sets 48MHz HSI clock ready flag
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setHSI48RDY(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 1)) | ((value << 1) & (0x1 << 1));
-        }
-        /**
-          Gets 48MHz HSI clock enable bit
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getHSI48ON() volatile {
-          return (raw & (0x1 << 0)) >> 0;
-        }
-        /**
-          Sets 48MHz HSI clock enable bit
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setHSI48ON(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
         }
       };
       
@@ -549,20 +507,6 @@ namespace target {
           raw = (raw & ~(0x1 << 7)) | ((value << 7) & (0x1 << 7));
         }
         /**
-          Gets HSI48 ready interrupt flag
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getHSI48RDYIE() volatile {
-          return (raw & (0x1 << 6)) >> 6;
-        }
-        /**
-          Sets HSI48 ready interrupt flag
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setHSI48RDYIE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 6)) | ((value << 6) & (0x1 << 6));
-        }
-        /**
           Gets MSI ready interrupt flag
           @return value in range 0..1
         */
@@ -689,20 +633,6 @@ namespace target {
           raw = (raw & ~(0x1 << 7)) | ((value << 7) & (0x1 << 7));
         }
         /**
-          Gets HSI48 ready interrupt flag
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getHSI48RDYF() volatile {
-          return (raw & (0x1 << 6)) >> 6;
-        }
-        /**
-          Sets HSI48 ready interrupt flag
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setHSI48RDYF(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 6)) | ((value << 6) & (0x1 << 6));
-        }
-        /**
           Gets MSI ready interrupt flag
           @return value in range 0..1
         */
@@ -827,20 +757,6 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setCSSLSEC(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 7)) | ((value << 7) & (0x1 << 7));
-        }
-        /**
-          Gets HSI48 ready Interrupt clear
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getHSI48RDYC() volatile {
-          return (raw & (0x1 << 6)) >> 6;
-        }
-        /**
-          Sets HSI48 ready Interrupt clear
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setHSI48RDYC(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 6)) | ((value << 6) & (0x1 << 6));
         }
         /**
           Gets MSI ready Interrupt clear
@@ -1010,6 +926,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setIOPARST(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
         }
+        /**
+          Gets I/O port E reset
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getIOPERST() volatile {
+          return (raw & (0x1 << 4)) >> 4;
+        }
+        /**
+          Sets I/O port E reset
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setIOPERST(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 4)) | ((value << 4) & (0x1 << 4));
+        }
       };
       
       /**
@@ -1037,34 +967,6 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setCRYPRST(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 24)) | ((value << 24) & (0x1 << 24));
-        }
-        /**
-          Gets Random Number Generator module reset
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getRNGRST() volatile {
-          return (raw & (0x1 << 20)) >> 20;
-        }
-        /**
-          Sets Random Number Generator module reset
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setRNGRST(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 20)) | ((value << 20) & (0x1 << 20));
-        }
-        /**
-          Gets Touch Sensing reset
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getTOUCHRST() volatile {
-          return (raw & (0x1 << 16)) >> 16;
-        }
-        /**
-          Sets Touch Sensing reset
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setTOUCHRST(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 16)) | ((value << 16) & (0x1 << 16));
         }
         /**
           Gets Test integration module reset
@@ -1123,6 +1025,36 @@ namespace target {
           return raw;
         }
         /**
+          Gets TIM21 timer reset
+          @param index in range 21..22
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getTIM_RST(int index) volatile {
+          return (raw & (0x1 << (2 + 3 * (index - 21)))) >> (2 + 3 * (index - 21));
+        }
+        /**
+          Sets TIM21 timer reset
+          @param index in range 21..22
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setTIM_RST(int index, unsigned long value) volatile {
+          raw = (raw & ~(0x1 << (2 + 3 * (index - 21)))) | ((value << (2 + 3 * (index - 21))) & (0x1 << (2 + 3 * (index - 21))));
+        }
+        /**
+          Gets TIM21 timer reset
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getTIM_RST() volatile {
+          return (raw & (0x3 << 2)) >> 2;
+        }
+        /**
+          Sets TIM21 timer reset
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setTIM_RST(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 2)) | ((value << 2) & (0x3 << 2));
+        }
+        /**
           Gets DBG reset
           @return value in range 0..1
         */
@@ -1177,34 +1109,6 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setADCRST(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 9)) | ((value << 9) & (0x1 << 9));
-        }
-        /**
-          Gets TIM22 timer reset
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getTM12RST() volatile {
-          return (raw & (0x1 << 5)) >> 5;
-        }
-        /**
-          Sets TIM22 timer reset
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setTM12RST(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 5)) | ((value << 5) & (0x1 << 5));
-        }
-        /**
-          Gets TIM21 timer reset
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getTIM21RST() volatile {
-          return (raw & (0x1 << 2)) >> 2;
-        }
-        /**
-          Sets TIM21 timer reset
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setTIM21RST(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 2)) | ((value << 2) & (0x1 << 2));
         }
         /**
           Gets System configuration controller reset
@@ -1265,6 +1169,36 @@ namespace target {
           raw = (raw & ~(0x3 << 21)) | ((value << 21) & (0x3 << 21));
         }
         /**
+          Gets Timer 2 reset
+          @param index in range 2..7
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getTIM_RST(int index) volatile {
+          return (raw & (0x1 << (0 + 1 * (index - 2)))) >> (0 + 1 * (index - 2));
+        }
+        /**
+          Sets Timer 2 reset
+          @param index in range 2..7
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setTIM_RST(int index, unsigned long value) volatile {
+          raw = (raw & ~(0x1 << (0 + 1 * (index - 2)))) | ((value << (0 + 1 * (index - 2))) & (0x1 << (0 + 1 * (index - 2))));
+        }
+        /**
+          Gets Timer 2 reset
+          @return value in range 0..63
+        */
+        __attribute__((always_inline)) unsigned long getTIM_RST() volatile {
+          return (raw & (0x3F << 0)) >> 0;
+        }
+        /**
+          Sets Timer 2 reset
+          @param value in range 0..63
+        */
+        __attribute__((always_inline)) unsigned long setTIM_RST(unsigned long value) volatile {
+          raw = (raw & ~(0x3F << 0)) | ((value << 0) & (0x3F << 0));
+        }
+        /**
           Gets Low power timer reset
           @return value in range 0..1
         */
@@ -1277,20 +1211,6 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setLPTIM1RST(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 31)) | ((value << 31) & (0x1 << 31));
-        }
-        /**
-          Gets DAC interface reset
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getDACRST() volatile {
-          return (raw & (0x1 << 29)) >> 29;
-        }
-        /**
-          Sets DAC interface reset
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setDACRST(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 29)) | ((value << 29) & (0x1 << 29));
         }
         /**
           Gets Power interface reset
@@ -1307,34 +1227,6 @@ namespace target {
           raw = (raw & ~(0x1 << 28)) | ((value << 28) & (0x1 << 28));
         }
         /**
-          Gets Clock recovery system reset
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getCRSRST() volatile {
-          return (raw & (0x1 << 27)) >> 27;
-        }
-        /**
-          Sets Clock recovery system reset
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setCRSRST(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 27)) | ((value << 27) & (0x1 << 27));
-        }
-        /**
-          Gets USB reset
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getUSBRST() volatile {
-          return (raw & (0x1 << 23)) >> 23;
-        }
-        /**
-          Sets USB reset
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setUSBRST(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 23)) | ((value << 23) & (0x1 << 23));
-        }
-        /**
           Gets LPUART1 reset
           @return value in range 0..1
         */
@@ -1349,17 +1241,17 @@ namespace target {
           raw = (raw & ~(0x1 << 18)) | ((value << 18) & (0x1 << 18));
         }
         /**
-          Gets UART2 reset
+          Gets USART2 reset
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getLPUART12RST() volatile {
+        __attribute__((always_inline)) unsigned long getUSART2RST() volatile {
           return (raw & (0x1 << 17)) >> 17;
         }
         /**
-          Sets UART2 reset
+          Sets USART2 reset
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setLPUART12RST(unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setUSART2RST(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 17)) | ((value << 17) & (0x1 << 17));
         }
         /**
@@ -1380,43 +1272,71 @@ namespace target {
           Gets Window watchdog reset
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getWWDRST() volatile {
+        __attribute__((always_inline)) unsigned long getWWDGRST() volatile {
           return (raw & (0x1 << 11)) >> 11;
         }
         /**
           Sets Window watchdog reset
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setWWDRST(unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setWWDGRST(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 11)) | ((value << 11) & (0x1 << 11));
         }
         /**
-          Gets Timer 6 reset
+          Gets USART4 reset
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getTIM6RST() volatile {
-          return (raw & (0x1 << 4)) >> 4;
+        __attribute__((always_inline)) unsigned long getUSART4RST() volatile {
+          return (raw & (0x1 << 19)) >> 19;
         }
         /**
-          Sets Timer 6 reset
+          Sets USART4 reset
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setTIM6RST(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 4)) | ((value << 4) & (0x1 << 4));
+        __attribute__((always_inline)) unsigned long setUSART4RST(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 19)) | ((value << 19) & (0x1 << 19));
         }
         /**
-          Gets Timer2 reset
+          Gets USART5 reset
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getTIM2RST() volatile {
-          return (raw & (0x1 << 0)) >> 0;
+        __attribute__((always_inline)) unsigned long getUSART5RST() volatile {
+          return (raw & (0x1 << 20)) >> 20;
         }
         /**
-          Sets Timer2 reset
+          Sets USART5 reset
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setTIM2RST(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
+        __attribute__((always_inline)) unsigned long setUSART5RST(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 20)) | ((value << 20) & (0x1 << 20));
+        }
+        /**
+          Gets CRC reset
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getCRCRST() volatile {
+          return (raw & (0x1 << 27)) >> 27;
+        }
+        /**
+          Sets CRC reset
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setCRCRST(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 27)) | ((value << 27) & (0x1 << 27));
+        }
+        /**
+          Gets I2C3 reset
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getI2C3() volatile {
+          return (raw & (0x1 << 30)) >> 30;
+        }
+        /**
+          Sets I2C3 reset
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setI2C3(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 30)) | ((value << 30) & (0x1 << 30));
         }
       };
       
@@ -1502,6 +1422,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setIOPAEN(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
         }
+        /**
+          Gets IO port E clock enable bit
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getIOPEEN() volatile {
+          return (raw & (0x1 << 4)) >> 4;
+        }
+        /**
+          Sets IO port E clock enable bit
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setIOPEEN(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 4)) | ((value << 4) & (0x1 << 4));
+        }
       };
       
       /**
@@ -1529,34 +1463,6 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setCRYPEN(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 24)) | ((value << 24) & (0x1 << 24));
-        }
-        /**
-          Gets Random Number Generator clock enable bit
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getRNGEN() volatile {
-          return (raw & (0x1 << 20)) >> 20;
-        }
-        /**
-          Sets Random Number Generator clock enable bit
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setRNGEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 20)) | ((value << 20) & (0x1 << 20));
-        }
-        /**
-          Gets Touch Sensing clock enable bit
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getTOUCHEN() volatile {
-          return (raw & (0x1 << 16)) >> 16;
-        }
-        /**
-          Sets Touch Sensing clock enable bit
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setTOUCHEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 16)) | ((value << 16) & (0x1 << 16));
         }
         /**
           Gets CRC clock enable bit
@@ -1701,17 +1607,17 @@ namespace target {
           raw = (raw & ~(0x1 << 9)) | ((value << 9) & (0x1 << 9));
         }
         /**
-          Gets MiFaRe Firewall clock enable bit
+          Gets Firewall clock enable bit
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getMIFIEN() volatile {
+        __attribute__((always_inline)) unsigned long getFWEN() volatile {
           return (raw & (0x1 << 7)) >> 7;
         }
         /**
-          Sets MiFaRe Firewall clock enable bit
+          Sets Firewall clock enable bit
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setMIFIEN(unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setFWEN(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 7)) | ((value << 7) & (0x1 << 7));
         }
         /**
@@ -1773,6 +1679,36 @@ namespace target {
           raw = (raw & ~(0x3 << 21)) | ((value << 21) & (0x3 << 21));
         }
         /**
+          Gets Timer2 clock enable bit
+          @param index in range 2..3
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getTIM_EN(int index) volatile {
+          return (raw & (0x1 << (0 + 2 * (index - 2)))) >> (0 + 2 * (index - 2));
+        }
+        /**
+          Sets Timer2 clock enable bit
+          @param index in range 2..3
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setTIM_EN(int index, unsigned long value) volatile {
+          raw = (raw & ~(0x1 << (0 + 2 * (index - 2)))) | ((value << (0 + 2 * (index - 2))) & (0x1 << (0 + 2 * (index - 2))));
+        }
+        /**
+          Gets Timer2 clock enable bit
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getTIM_EN() volatile {
+          return (raw & (0x3 << 0)) >> 0;
+        }
+        /**
+          Sets Timer2 clock enable bit
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setTIM_EN(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 0)) | ((value << 0) & (0x3 << 0));
+        }
+        /**
           Gets Low power timer clock enable bit
           @return value in range 0..1
         */
@@ -1787,20 +1723,6 @@ namespace target {
           raw = (raw & ~(0x1 << 31)) | ((value << 31) & (0x1 << 31));
         }
         /**
-          Gets DAC interface clock enable bit
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getDACEN() volatile {
-          return (raw & (0x1 << 29)) >> 29;
-        }
-        /**
-          Sets DAC interface clock enable bit
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setDACEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 29)) | ((value << 29) & (0x1 << 29));
-        }
-        /**
           Gets Power interface clock enable bit
           @return value in range 0..1
         */
@@ -1813,34 +1735,6 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setPWREN(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 28)) | ((value << 28) & (0x1 << 28));
-        }
-        /**
-          Gets Clock recovery system clock enable bit
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getCRSEN() volatile {
-          return (raw & (0x1 << 27)) >> 27;
-        }
-        /**
-          Sets Clock recovery system clock enable bit
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setCRSEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 27)) | ((value << 27) & (0x1 << 27));
-        }
-        /**
-          Gets USB clock enable bit
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getUSBEN() volatile {
-          return (raw & (0x1 << 23)) >> 23;
-        }
-        /**
-          Sets USB clock enable bit
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setUSBEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 23)) | ((value << 23) & (0x1 << 23));
         }
         /**
           Gets LPUART1 clock enable bit
@@ -1913,18 +1807,60 @@ namespace target {
           raw = (raw & ~(0x1 << 4)) | ((value << 4) & (0x1 << 4));
         }
         /**
-          Gets Timer2 clock enable bit
+          Gets Timer 7 clock enable bit
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getTIM2EN() volatile {
-          return (raw & (0x1 << 0)) >> 0;
+        __attribute__((always_inline)) unsigned long getTIM7EN() volatile {
+          return (raw & (0x1 << 5)) >> 5;
         }
         /**
-          Sets Timer2 clock enable bit
+          Sets Timer 7 clock enable bit
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setTIM2EN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
+        __attribute__((always_inline)) unsigned long setTIM7EN(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 5)) | ((value << 5) & (0x1 << 5));
+        }
+        /**
+          Gets USART4 clock enable bit
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getUSART4EN() volatile {
+          return (raw & (0x1 << 19)) >> 19;
+        }
+        /**
+          Sets USART4 clock enable bit
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setUSART4EN(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 19)) | ((value << 19) & (0x1 << 19));
+        }
+        /**
+          Gets USART5 clock enable bit
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getUSART5EN() volatile {
+          return (raw & (0x1 << 20)) >> 20;
+        }
+        /**
+          Sets USART5 clock enable bit
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setUSART5EN(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 20)) | ((value << 20) & (0x1 << 20));
+        }
+        /**
+          Gets I2C3 clock enable bit
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getI2C3EN() volatile {
+          return (raw & (0x1 << 30)) >> 30;
+        }
+        /**
+          Sets I2C3 clock enable bit
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setI2C3EN(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 30)) | ((value << 30) & (0x1 << 30));
         }
       };
       
@@ -1941,74 +1877,88 @@ namespace target {
           return raw;
         }
         /**
-          Gets IOPHSMEN
+          Gets Port H clock enable during Sleep mode bit
           @return value in range 0..1
         */
         __attribute__((always_inline)) unsigned long getIOPHSMEN() volatile {
           return (raw & (0x1 << 7)) >> 7;
         }
         /**
-          Sets IOPHSMEN
+          Sets Port H clock enable during Sleep mode bit
           @param value in range 0..1
         */
         __attribute__((always_inline)) unsigned long setIOPHSMEN(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 7)) | ((value << 7) & (0x1 << 7));
         }
         /**
-          Gets IOPDSMEN
+          Gets Port D clock enable during Sleep mode bit
           @return value in range 0..1
         */
         __attribute__((always_inline)) unsigned long getIOPDSMEN() volatile {
           return (raw & (0x1 << 3)) >> 3;
         }
         /**
-          Sets IOPDSMEN
+          Sets Port D clock enable during Sleep mode bit
           @param value in range 0..1
         */
         __attribute__((always_inline)) unsigned long setIOPDSMEN(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 3)) | ((value << 3) & (0x1 << 3));
         }
         /**
-          Gets IOPCSMEN
+          Gets Port C clock enable during Sleep mode bit
           @return value in range 0..1
         */
         __attribute__((always_inline)) unsigned long getIOPCSMEN() volatile {
           return (raw & (0x1 << 2)) >> 2;
         }
         /**
-          Sets IOPCSMEN
+          Sets Port C clock enable during Sleep mode bit
           @param value in range 0..1
         */
         __attribute__((always_inline)) unsigned long setIOPCSMEN(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 2)) | ((value << 2) & (0x1 << 2));
         }
         /**
-          Gets IOPBSMEN
+          Gets Port B clock enable during Sleep mode bit
           @return value in range 0..1
         */
         __attribute__((always_inline)) unsigned long getIOPBSMEN() volatile {
           return (raw & (0x1 << 1)) >> 1;
         }
         /**
-          Sets IOPBSMEN
+          Sets Port B clock enable during Sleep mode bit
           @param value in range 0..1
         */
         __attribute__((always_inline)) unsigned long setIOPBSMEN(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 1)) | ((value << 1) & (0x1 << 1));
         }
         /**
-          Gets IOPASMEN
+          Gets Port A clock enable during Sleep mode bit
           @return value in range 0..1
         */
         __attribute__((always_inline)) unsigned long getIOPASMEN() volatile {
           return (raw & (0x1 << 0)) >> 0;
         }
         /**
-          Sets IOPASMEN
+          Sets Port A clock enable during Sleep mode bit
           @param value in range 0..1
         */
         __attribute__((always_inline)) unsigned long setIOPASMEN(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
+        }
+        /**
+          Gets Port E clock enable during Sleep mode bit
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getIOPESMEN() volatile {
+          return (raw & (0x1 << 4)) >> 4;
+        }
+        /**
+          Sets Port E clock enable during Sleep mode bit
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setIOPESMEN(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 4)) | ((value << 4) & (0x1 << 4));
         }
       };
       
@@ -2028,43 +1978,15 @@ namespace target {
           Gets Crypto clock enable during sleep mode bit
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getCRYPSMEN() volatile {
+        __attribute__((always_inline)) unsigned long getCRYPTSMEN() volatile {
           return (raw & (0x1 << 24)) >> 24;
         }
         /**
           Sets Crypto clock enable during sleep mode bit
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setCRYPSMEN(unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setCRYPTSMEN(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 24)) | ((value << 24) & (0x1 << 24));
-        }
-        /**
-          Gets Random Number Generator clock enable during sleep mode bit
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getRNGSMEN() volatile {
-          return (raw & (0x1 << 20)) >> 20;
-        }
-        /**
-          Sets Random Number Generator clock enable during sleep mode bit
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setRNGSMEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 20)) | ((value << 20) & (0x1 << 20));
-        }
-        /**
-          Gets Touch Sensing clock enable during sleep mode bit
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getTOUCHSMEN() volatile {
-          return (raw & (0x1 << 16)) >> 16;
-        }
-        /**
-          Sets Touch Sensing clock enable during sleep mode bit
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setTOUCHSMEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 16)) | ((value << 16) & (0x1 << 16));
         }
         /**
           Gets CRC clock enable during sleep mode bit
@@ -2281,6 +2203,36 @@ namespace target {
           raw = (raw & ~(0x3 << 21)) | ((value << 21) & (0x3 << 21));
         }
         /**
+          Gets Timer2 clock enable during sleep mode bit
+          @param index in range 2..7
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getTIM_SMEN(int index) volatile {
+          return (raw & (0x1 << (0 + 1 * (index - 2)))) >> (0 + 1 * (index - 2));
+        }
+        /**
+          Sets Timer2 clock enable during sleep mode bit
+          @param index in range 2..7
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setTIM_SMEN(int index, unsigned long value) volatile {
+          raw = (raw & ~(0x1 << (0 + 1 * (index - 2)))) | ((value << (0 + 1 * (index - 2))) & (0x1 << (0 + 1 * (index - 2))));
+        }
+        /**
+          Gets Timer2 clock enable during sleep mode bit
+          @return value in range 0..63
+        */
+        __attribute__((always_inline)) unsigned long getTIM_SMEN() volatile {
+          return (raw & (0x3F << 0)) >> 0;
+        }
+        /**
+          Sets Timer2 clock enable during sleep mode bit
+          @param value in range 0..63
+        */
+        __attribute__((always_inline)) unsigned long setTIM_SMEN(unsigned long value) volatile {
+          raw = (raw & ~(0x3F << 0)) | ((value << 0) & (0x3F << 0));
+        }
+        /**
           Gets Low power timer clock enable during sleep mode bit
           @return value in range 0..1
         */
@@ -2293,20 +2245,6 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setLPTIM1SMEN(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 31)) | ((value << 31) & (0x1 << 31));
-        }
-        /**
-          Gets DAC interface clock enable during sleep mode bit
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getDACSMEN() volatile {
-          return (raw & (0x1 << 29)) >> 29;
-        }
-        /**
-          Sets DAC interface clock enable during sleep mode bit
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setDACSMEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 29)) | ((value << 29) & (0x1 << 29));
         }
         /**
           Gets Power interface clock enable during sleep mode bit
@@ -2335,20 +2273,6 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setCRSSMEN(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 27)) | ((value << 27) & (0x1 << 27));
-        }
-        /**
-          Gets USB clock enable during sleep mode bit
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getUSBSMEN() volatile {
-          return (raw & (0x1 << 23)) >> 23;
-        }
-        /**
-          Sets USB clock enable during sleep mode bit
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setUSBSMEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 23)) | ((value << 23) & (0x1 << 23));
         }
         /**
           Gets LPUART1 clock enable during sleep mode bit
@@ -2407,32 +2331,46 @@ namespace target {
           raw = (raw & ~(0x1 << 11)) | ((value << 11) & (0x1 << 11));
         }
         /**
-          Gets Timer 6 clock enable during sleep mode bit
+          Gets USART4 clock enabe during sleep mode bit
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getTIM6SMEN() volatile {
-          return (raw & (0x1 << 4)) >> 4;
+        __attribute__((always_inline)) unsigned long getUSART4SMEN() volatile {
+          return (raw & (0x1 << 19)) >> 19;
         }
         /**
-          Sets Timer 6 clock enable during sleep mode bit
+          Sets USART4 clock enabe during sleep mode bit
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setTIM6SMEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 4)) | ((value << 4) & (0x1 << 4));
+        __attribute__((always_inline)) unsigned long setUSART4SMEN(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 19)) | ((value << 19) & (0x1 << 19));
         }
         /**
-          Gets Timer2 clock enable during sleep mode bit
+          Gets USART5 clock enable during sleep mode bit
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getTIM2SMEN() volatile {
-          return (raw & (0x1 << 0)) >> 0;
+        __attribute__((always_inline)) unsigned long getUSART5SMEN() volatile {
+          return (raw & (0x1 << 20)) >> 20;
         }
         /**
-          Sets Timer2 clock enable during sleep mode bit
+          Sets USART5 clock enable during sleep mode bit
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setTIM2SMEN(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
+        __attribute__((always_inline)) unsigned long setUSART5SMEN(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 20)) | ((value << 20) & (0x1 << 20));
+        }
+        /**
+          Gets I2C3 clock enable during sleep mode bit
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getI2C3SMEN() volatile {
+          return (raw & (0x1 << 30)) >> 30;
+        }
+        /**
+          Sets I2C3 clock enable during sleep mode bit
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setI2C3SMEN(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 30)) | ((value << 30) & (0x1 << 30));
         }
       };
       
@@ -2449,48 +2387,34 @@ namespace target {
           return raw;
         }
         /**
-          Gets USART1SEL0
+          Gets I2C3 clock source selection bits
           @param index in range 0..1
           @return value in range 0..1
         */
         __attribute__((always_inline)) unsigned long getSEL(int index) volatile {
-          return (raw & (0x1 << (0 + 1 * (index - 0)))) >> (0 + 1 * (index - 0));
+          return (raw & (0x1 << (16 + 1 * (index - 0)))) >> (16 + 1 * (index - 0));
         }
         /**
-          Sets USART1SEL0
+          Sets I2C3 clock source selection bits
           @param index in range 0..1
           @param value in range 0..1
         */
         __attribute__((always_inline)) unsigned long setSEL(int index, unsigned long value) volatile {
-          raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+          raw = (raw & ~(0x1 << (16 + 1 * (index - 0)))) | ((value << (16 + 1 * (index - 0))) & (0x1 << (16 + 1 * (index - 0))));
         }
         /**
-          Gets USART1SEL0
+          Gets I2C3 clock source selection bits
           @return value in range 0..3
         */
         __attribute__((always_inline)) unsigned long getSEL() volatile {
-          return (raw & (0x3 << 0)) >> 0;
+          return (raw & (0x3 << 16)) >> 16;
         }
         /**
-          Sets USART1SEL0
+          Sets I2C3 clock source selection bits
           @param value in range 0..3
         */
         __attribute__((always_inline)) unsigned long setSEL(unsigned long value) volatile {
-          raw = (raw & ~(0x3 << 0)) | ((value << 0) & (0x3 << 0));
-        }
-        /**
-          Gets 48 MHz HSI48 clock source selection bit
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getHSI48MSEL() volatile {
-          return (raw & (0x1 << 26)) >> 26;
-        }
-        /**
-          Sets 48 MHz HSI48 clock source selection bit
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setHSI48MSEL(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 26)) | ((value << 26) & (0x1 << 26));
+          raw = (raw & ~(0x3 << 16)) | ((value << 16) & (0x3 << 16));
         }
         /**
           Gets Low Power Timer clock source selection bits
@@ -2603,6 +2527,34 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setUSART2SEL0(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 2)) | ((value << 2) & (0x1 << 2));
+        }
+        /**
+          Gets USART1 clock source selection bits
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getUSART1SEL1() volatile {
+          return (raw & (0x1 << 1)) >> 1;
+        }
+        /**
+          Sets USART1 clock source selection bits
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setUSART1SEL1(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 1)) | ((value << 1) & (0x1 << 1));
+        }
+        /**
+          Gets USART1SEL0
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getUSART1SEL0() volatile {
+          return (raw & (0x1 << 0)) >> 0;
+        }
+        /**
+          Sets USART1SEL0
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setUSART1SEL0(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
         }
       };
       
@@ -2717,17 +2669,17 @@ namespace target {
           raw = (raw & ~(0x1 << 25)) | ((value << 25) & (0x1 << 25));
         }
         /**
-          Gets Remove reset flag
+          Gets Firewall reset flag
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getRMVF() volatile {
+        __attribute__((always_inline)) unsigned long getFWRSTF() volatile {
           return (raw & (0x1 << 24)) >> 24;
         }
         /**
-          Sets Remove reset flag
+          Sets Firewall reset flag
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setRMVF(unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setFWRSTF(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 24)) | ((value << 24) & (0x1 << 24));
         }
         /**
@@ -2884,6 +2836,34 @@ namespace target {
         __attribute__((always_inline)) unsigned long setLSION(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
         }
+        /**
+          Gets LSI clock input to IWDG in Ultra-low-power mode (Stop and Standby) enable bit
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getLSIIWDGLP() volatile {
+          return (raw & (0x1 << 2)) >> 2;
+        }
+        /**
+          Sets LSI clock input to IWDG in Ultra-low-power mode (Stop and Standby) enable bit
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setLSIIWDGLP(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 2)) | ((value << 2) & (0x1 << 2));
+        }
+        /**
+          Gets Remove reset flag
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getRMVF() volatile {
+          return (raw & (0x1 << 23)) >> 23;
+        }
+        /**
+          Sets Remove reset flag
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setRMVF(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 23)) | ((value << 23) & (0x1 << 23));
+        }
       };
     };
     class Peripheral {
@@ -2901,13 +2881,6 @@ namespace target {
             Internal clock sources calibration register
           */
           volatile reg::ICSCR ICSCR;
-        };
-        struct {
-          volatile char _space_CRRCR[8];
-          /**
-            Clock recovery RC register
-          */
-          volatile reg::CRRCR CRRCR;
         };
         struct {
           volatile char _space_CFGR[12];

@@ -113,17 +113,17 @@ namespace target {
           raw = (raw & ~(0x1 << 8)) | ((value << 8) & (0x1 << 8));
         }
         /**
-          Gets Flash power down in Stop mode
+          Gets Ultra-low-power mode
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getFPDS() volatile {
+        __attribute__((always_inline)) unsigned long getULP() volatile {
           return (raw & (0x1 << 9)) >> 9;
         }
         /**
-          Sets Flash power down in Stop mode
+          Sets Ultra-low-power mode
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setFPDS(unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setULP(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 9)) | ((value << 9) & (0x1 << 9));
         }
         /**

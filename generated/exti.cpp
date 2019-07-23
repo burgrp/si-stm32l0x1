@@ -16,33 +16,33 @@ namespace target {
         }
         /**
           Gets Interrupt Mask on line 0
-          @param index in range 0..27
+          @param index in range 0..29
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getMR(int index) volatile {
+        __attribute__((always_inline)) unsigned long getIM(int index) volatile {
           return (raw & (0x1 << (0 + 1 * (index - 0)))) >> (0 + 1 * (index - 0));
         }
         /**
           Sets Interrupt Mask on line 0
-          @param index in range 0..27
+          @param index in range 0..29
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setMR(int index, unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setIM(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
         /**
           Gets Interrupt Mask on line 0
-          @return value in range 0..268435455
+          @return value in range 0..1073741823
         */
-        __attribute__((always_inline)) unsigned long getMR() volatile {
-          return (raw & (0xFFFFFFF << 0)) >> 0;
+        __attribute__((always_inline)) unsigned long getIM() volatile {
+          return (raw & (0x3FFFFFFF << 0)) >> 0;
         }
         /**
           Sets Interrupt Mask on line 0
-          @param value in range 0..268435455
+          @param value in range 0..1073741823
         */
-        __attribute__((always_inline)) unsigned long setMR(unsigned long value) volatile {
-          raw = (raw & ~(0xFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFF << 0));
+        __attribute__((always_inline)) unsigned long setIM(unsigned long value) volatile {
+          raw = (raw & ~(0x3FFFFFFF << 0)) | ((value << 0) & (0x3FFFFFFF << 0));
         }
       };
       
@@ -60,33 +60,33 @@ namespace target {
         }
         /**
           Gets Event Mask on line 0
-          @param index in range 0..27
+          @param index in range 0..29
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getMR(int index) volatile {
+        __attribute__((always_inline)) unsigned long getEM(int index) volatile {
           return (raw & (0x1 << (0 + 1 * (index - 0)))) >> (0 + 1 * (index - 0));
         }
         /**
           Sets Event Mask on line 0
-          @param index in range 0..27
+          @param index in range 0..29
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setMR(int index, unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setEM(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
         /**
           Gets Event Mask on line 0
-          @return value in range 0..268435455
+          @return value in range 0..1073741823
         */
-        __attribute__((always_inline)) unsigned long getMR() volatile {
-          return (raw & (0xFFFFFFF << 0)) >> 0;
+        __attribute__((always_inline)) unsigned long getEM() volatile {
+          return (raw & (0x3FFFFFFF << 0)) >> 0;
         }
         /**
           Sets Event Mask on line 0
-          @param value in range 0..268435455
+          @param value in range 0..1073741823
         */
-        __attribute__((always_inline)) unsigned long setMR(unsigned long value) volatile {
-          raw = (raw & ~(0xFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFF << 0));
+        __attribute__((always_inline)) unsigned long setEM(unsigned long value) volatile {
+          raw = (raw & ~(0x3FFFFFFF << 0)) | ((value << 0) & (0x3FFFFFFF << 0));
         }
       };
       
@@ -104,33 +104,33 @@ namespace target {
         }
         /**
           Gets Rising trigger event configuration of line 0
-          @param index in range 0..19
+          @param index in range 0..22
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getTR(int index) volatile {
+        __attribute__((always_inline)) unsigned long getRT(int index) volatile {
           return (raw & (0x1 << (0 + 1 * (index - 0)))) >> (0 + 1 * (index - 0));
         }
         /**
           Sets Rising trigger event configuration of line 0
-          @param index in range 0..19
+          @param index in range 0..22
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setTR(int index, unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setRT(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
         /**
           Gets Rising trigger event configuration of line 0
-          @return value in range 0..1048575
+          @return value in range 0..8388607
         */
-        __attribute__((always_inline)) unsigned long getTR() volatile {
-          return (raw & (0xFFFFF << 0)) >> 0;
+        __attribute__((always_inline)) unsigned long getRT() volatile {
+          return (raw & (0x7FFFFF << 0)) >> 0;
         }
         /**
           Sets Rising trigger event configuration of line 0
-          @param value in range 0..1048575
+          @param value in range 0..8388607
         */
-        __attribute__((always_inline)) unsigned long setTR(unsigned long value) volatile {
-          raw = (raw & ~(0xFFFFF << 0)) | ((value << 0) & (0xFFFFF << 0));
+        __attribute__((always_inline)) unsigned long setRT(unsigned long value) volatile {
+          raw = (raw & ~(0x7FFFFF << 0)) | ((value << 0) & (0x7FFFFF << 0));
         }
       };
       
@@ -148,33 +148,33 @@ namespace target {
         }
         /**
           Gets Falling trigger event configuration of line 0
-          @param index in range 0..19
+          @param index in range 0..22
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getTR(int index) volatile {
+        __attribute__((always_inline)) unsigned long getFT(int index) volatile {
           return (raw & (0x1 << (0 + 1 * (index - 0)))) >> (0 + 1 * (index - 0));
         }
         /**
           Sets Falling trigger event configuration of line 0
-          @param index in range 0..19
+          @param index in range 0..22
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setTR(int index, unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setFT(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
         /**
           Gets Falling trigger event configuration of line 0
-          @return value in range 0..1048575
+          @return value in range 0..8388607
         */
-        __attribute__((always_inline)) unsigned long getTR() volatile {
-          return (raw & (0xFFFFF << 0)) >> 0;
+        __attribute__((always_inline)) unsigned long getFT() volatile {
+          return (raw & (0x7FFFFF << 0)) >> 0;
         }
         /**
           Sets Falling trigger event configuration of line 0
-          @param value in range 0..1048575
+          @param value in range 0..8388607
         */
-        __attribute__((always_inline)) unsigned long setTR(unsigned long value) volatile {
-          raw = (raw & ~(0xFFFFF << 0)) | ((value << 0) & (0xFFFFF << 0));
+        __attribute__((always_inline)) unsigned long setFT(unsigned long value) volatile {
+          raw = (raw & ~(0x7FFFFF << 0)) | ((value << 0) & (0x7FFFFF << 0));
         }
       };
       
@@ -192,33 +192,33 @@ namespace target {
         }
         /**
           Gets Software Interrupt on line 0
-          @param index in range 0..19
+          @param index in range 0..22
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getSWIER(int index) volatile {
+        __attribute__((always_inline)) unsigned long getSWI(int index) volatile {
           return (raw & (0x1 << (0 + 1 * (index - 0)))) >> (0 + 1 * (index - 0));
         }
         /**
           Sets Software Interrupt on line 0
-          @param index in range 0..19
+          @param index in range 0..22
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setSWIER(int index, unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setSWI(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
         /**
           Gets Software Interrupt on line 0
-          @return value in range 0..1048575
+          @return value in range 0..8388607
         */
-        __attribute__((always_inline)) unsigned long getSWIER() volatile {
-          return (raw & (0xFFFFF << 0)) >> 0;
+        __attribute__((always_inline)) unsigned long getSWI() volatile {
+          return (raw & (0x7FFFFF << 0)) >> 0;
         }
         /**
           Sets Software Interrupt on line 0
-          @param value in range 0..1048575
+          @param value in range 0..8388607
         */
-        __attribute__((always_inline)) unsigned long setSWIER(unsigned long value) volatile {
-          raw = (raw & ~(0xFFFFF << 0)) | ((value << 0) & (0xFFFFF << 0));
+        __attribute__((always_inline)) unsigned long setSWI(unsigned long value) volatile {
+          raw = (raw & ~(0x7FFFFF << 0)) | ((value << 0) & (0x7FFFFF << 0));
         }
       };
       
@@ -236,33 +236,33 @@ namespace target {
         }
         /**
           Gets Pending bit 0
-          @param index in range 0..19
+          @param index in range 0..22
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getPR(int index) volatile {
+        __attribute__((always_inline)) unsigned long getPIF(int index) volatile {
           return (raw & (0x1 << (0 + 1 * (index - 0)))) >> (0 + 1 * (index - 0));
         }
         /**
           Sets Pending bit 0
-          @param index in range 0..19
+          @param index in range 0..22
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setPR(int index, unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setPIF(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
         /**
           Gets Pending bit 0
-          @return value in range 0..1048575
+          @return value in range 0..8388607
         */
-        __attribute__((always_inline)) unsigned long getPR() volatile {
-          return (raw & (0xFFFFF << 0)) >> 0;
+        __attribute__((always_inline)) unsigned long getPIF() volatile {
+          return (raw & (0x7FFFFF << 0)) >> 0;
         }
         /**
           Sets Pending bit 0
-          @param value in range 0..1048575
+          @param value in range 0..8388607
         */
-        __attribute__((always_inline)) unsigned long setPR(unsigned long value) volatile {
-          raw = (raw & ~(0xFFFFF << 0)) | ((value << 0) & (0xFFFFF << 0));
+        __attribute__((always_inline)) unsigned long setPIF(unsigned long value) volatile {
+          raw = (raw & ~(0x7FFFFF << 0)) | ((value << 0) & (0x7FFFFF << 0));
         }
       };
     };
